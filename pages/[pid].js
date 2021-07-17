@@ -14,7 +14,7 @@ function ProductDetail(props) {
             <h1 style={{textAlign:'center'}}>
             {loadingProduct.title}</h1>
             <br/>
-            <p>{loadingProduct.Discription}</p>
+            <p style={{textAlign:'center'}} >{loadingProduct.description}</p>
             
         </Fragment>
     )
@@ -41,7 +41,7 @@ function ProductDetail(props) {
              {params:{pid:'p1'}},
     
          ],
-         fallback:true
+         fallback:"blocking"
      }
  }
  export default ProductDetail
