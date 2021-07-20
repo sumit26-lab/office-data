@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import React from 'react';
 import path from 'path'
 import Link from 'next/link';
 export default function Home(props) {
@@ -8,7 +9,8 @@ export default function Home(props) {
      <ul>
      {products.map(item =>
        <li key={item.id}>
-       <Link href={`/${item.id}`}>{item.title}</Link>
+       <Link href={`/products/${item.id}`}>{item.title}</Link>
+  
        
        </li>
      )}
@@ -19,7 +21,7 @@ export default function Home(props) {
   )
 }
 export async function getStaticProps(){
-  console.log('Re-Genrated----10--- Second')
+  console.log('Re-Genrated----1--- Second')
   const filePath=path.join(process.cwd(),'Data','dummy-backend.json')
   const jsonData=await fs.readFile(filePath)
   const data=JSON.parse(jsonData)
@@ -40,6 +42,6 @@ export async function getStaticProps(){
         
     
     },
-    revalidate:10
+    revalidate:600  //ISR Page will should be Re -genrated evry 10 second
   }
 }
